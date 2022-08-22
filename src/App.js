@@ -1,10 +1,12 @@
+import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Cart from "./Pages/Cart"
 import Login from "./Pages/Login"
 import ProductList from "./Pages/ProductList"
 import Register from "./Pages/Register"
+import Nav from "./components/Navbar"
 const App = () => {
-  return <Cart />;
+  return <ProductList />;
 };
 
 export default App;

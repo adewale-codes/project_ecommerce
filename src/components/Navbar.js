@@ -1,94 +1,113 @@
+import React, { useState } from "react";
 import {Badge} from '@material-ui/core'
-import { Search, ShoppingCartOutlined } from '@material-ui/icons';
-import React from 'react'
-import styled from 'styled-components'
+import { ShoppingCartOutlined } from '@material-ui/icons';
+import styled from "styled-components";
 
-const Navbar = () => {
+const Nav = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const Container = styled.div`
-        height: 60px;
-    `;
+  const MenuLink = styled.a`
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #67bc98;
+  transition: all 0.3s ease-in;
+  font-size: 0.9rem;
 
-    const Wrapper = styled.div`
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    `
+  &:hover {
+    color: #7b7fda;
+  }
+`;
 
-    const Left = styled.div`
-    flex: 1;
+const Nav = styled.div`
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
+
+const Logo = styled.a`
+  padding: 1rem 0;
+  color: #7b7fda;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.7rem;
+
+  span {
+    font-weight: 300;
+    font-size: 1.3rem;
+  }
+`;
+
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+    flex-direction: column;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.3s ease-in;
+    width: 100%;
+  }
+`;
+
+const Hamburger = styled.div`
+  display: none;
+
+  flex-direction: column;
+  cursor: pointer;
+
+  span {
+    height: 2px;
+    width: 25px;
+    background: #7b7fda;
+    margin-bottom: 4px;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 768px) {
     display: flex;
-    align-items: center;
-    `;
-
-    const Language = styled.span`
-     font-size: 14px;
-     cursor: pointer;
-    `;
-
-    const SearchContainer = styled.div`
-        border: 0.5px solid lightgray;
-        display: flex;
-        align-items: center;
-        margin-left: 25px;
-        padding: 5px;
-    `;
-
-    const Input = styled.input`
-        border: none;
-    `;
-
-    const Center = styled.div`
-    flex: 1;
-    text-align: center;
-    `;
-
-    const Logo = styled.h1`
-        font-weight: bold;
-    `;
-    const Right = styled.div`
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    `;
-
-    const MenuItem = styled.div`
-        font-size: 14px;
-        cursor: pointer;
-        margin-left: 25px;
-    `;
+  }
+`;
 
   return (
-    <Container>
-        <Wrapper>
-            <Left>
-                <Language>
-                    EN
-                </Language>
-                <SearchContainer>
-                    <Input />
-                    <Search style={{color: "gray", fontsize: 16}} />
-                </SearchContainer>
-            </Left>
-            <Center>
-                <Logo>
-                    ADE FASHION
-                </Logo>
-            </Center>
-            <Right>
-                <MenuItem>Register</MenuItem>
-                <MenuItem>Sign In</MenuItem>
-                <MenuItem>
-                    <Badge badgeContent={4} color="primary">
-                        <ShoppingCartOutlined />
-                    </Badge>
-                </MenuItem>
-            </Right>
-        </Wrapper>
-    </Container>
-  )
-}
+    <Nav>
+      <Logo href="">
+        Ade<span>Stores</span>
+      </Logo>
+      <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <span />
+        <span />
+        <span />
+      </Hamburger>
+      <Menu isOpen={isOpen}>
+        <MenuLink to="/">Home</MenuLink>
+        <MenuLink to="/">Products</MenuLink>
+        <MenuLink to="/">Categories</MenuLink>
+        <MenuLink to="/">About</MenuLink>
+        <MenuLink to="/">Login</MenuLink>
+        <MenuLink to="/">Register</MenuLink>
+        <MenuLink to="/">Contact</MenuLink>
+        <MenuLink to="/">
+          <Badge badgeContent={4} color="primary">
+            <ShoppingCartOutlined />
+          </Badge>
+        </MenuLink>
+      </Menu>
+    </Nav>
+  );
+};
 
-export default Navbar
+export default Nav;
+
+

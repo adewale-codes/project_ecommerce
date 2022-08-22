@@ -16,7 +16,16 @@ const Footer = () => {
         padding: 20px;
     `;
 
-    const Logo = styled.h1``;
+    const Logo = styled.h1`
+        color: #7b7fda;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 1.7rem;
+        span {
+            font-weight: 300;
+            font-size: 1.3rem;
+        }
+    `;
 
     const Description = styled.p`
         margin: 20px 0px;
@@ -78,7 +87,7 @@ const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>ADE FASHION</Logo>
+        <Logo>Ade<span>Stores</span></Logo>
         <Description>Welcome to ADESHOP where you can buy your favorite things at a go without the need to come to a physical store fully online</Description>
         <SocialContainer>
             <SocialIcon color="3B5999">

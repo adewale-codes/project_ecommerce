@@ -1,5 +1,4 @@
 import React from 'react'
-import Announcement from '../components/Announcement'
 import Carousel from '../components/Carousel'
 import Categories from '../components/Categories'
 import Footer from '../components/Footer'
@@ -10,8 +9,10 @@ import Products from '../components/Products'
 const Home = () => {
   return (
     <div>
-        <Announcement />
         <Navbar />
+        <br />
+        <br />
+        <br />
         <Carousel />
         <Categories />
         <Products />
