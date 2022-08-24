@@ -1,8 +1,7 @@
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Newsletter from "../components/Newsletter";
+import Newsletter from "./Newsletter";
+import Product from "../images/product.jpg";
 
 const Container = styled.div``;
 
@@ -108,13 +107,12 @@ const Button = styled.button`
   }
 `;
 
-const Product = () => {
+const ProductPage = () => {
   return (
     <Container>
-      <Navbar />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          <Image src={Product} />
         </ImgContainer>
         <InfoContainer>
           <Title>Denim Jumpsuit</Title>
@@ -155,9 +153,8 @@ const Product = () => {
         </InfoContainer>
       </Wrapper>
       <Newsletter />
-      <Footer />
     </Container>
   );
 };
 
-export default Product;
+export default ProductPage;

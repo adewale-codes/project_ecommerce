@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
 import {Badge} from '@material-ui/core'
 import { ShoppingCartOutlined } from '@material-ui/icons';
 import styled from "styled-components";
@@ -82,8 +83,10 @@ const Hamburger = styled.div`
 
   return (
     <Nav>
-      <Logo href="">
-        Ade<span>Stores</span>
+      <Logo>
+        <Link to="/">
+          Ade<span>Stores</span>
+        </Link>
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -91,17 +94,47 @@ const Hamburger = styled.div`
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink to="/">Home</MenuLink>
-        <MenuLink to="/">Products</MenuLink>
-        <MenuLink to="/">Categories</MenuLink>
-        <MenuLink to="/">About</MenuLink>
-        <MenuLink to="/">Login</MenuLink>
-        <MenuLink to="/">Register</MenuLink>
-        <MenuLink to="/">Contact</MenuLink>
-        <MenuLink to="/">
-          <Badge badgeContent={4} color="primary">
-            <ShoppingCartOutlined />
-          </Badge>
+        <MenuLink>
+          <Link to="/">
+            Home
+          </Link>
+        </MenuLink>
+        <MenuLink>
+          <Link to="/ProductList">
+            Products
+          </Link>
+        </MenuLink>
+        <MenuLink>
+          <Link to="/">
+            Categories
+          </Link>
+        </MenuLink>
+        <MenuLink>
+          <Link to="/">
+            About
+          </Link>
+        </MenuLink>
+        <MenuLink>
+          <Link to="/Login">
+            Login
+          </Link>
+          </MenuLink>
+        <MenuLink>
+          <Link to="/Register">
+            Register
+          </Link>
+        </MenuLink>
+        <MenuLink>
+          <Link to="/">
+            Contact
+          </Link>
+          </MenuLink>
+        <MenuLink>
+          <Link to="/Cart">
+            <Badge badgeContent={4} color="primary">
+              <ShoppingCartOutlined />
+            </Badge>
+          </Link>
         </MenuLink>
       </Menu>
     </Nav>
