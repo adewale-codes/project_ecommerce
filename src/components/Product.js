@@ -1,6 +1,8 @@
-import React from 'react'
+// import React from 'react'
+// import { Link } from "react-router-dom"
 import styled from 'styled-components'
 import { SearchOutlined, FavoriteBorderOutlined, ShoppingCartOutlined } from '@material-ui/icons';
+// import ProductPage from './ProductPage';
 
 const Product = ({item}) => {
     
@@ -66,7 +68,8 @@ const Product = ({item}) => {
   return (
     <Container>
       <Circle />
-      <Image src={item.img} />
+        <Image src={item.img} />
+
       <Info>
         <Icon>
             <ShoppingCartOutlined />
